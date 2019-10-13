@@ -3,13 +3,20 @@ package main
 import f "fmt"
 import "strings"
 
+var countC int
+var countV int
+
 func main() {
 	var input string
-	check :=[]bool{false,false,false,false,false,}
-	var countV int
-	var countC int
 	f.Printf("Input any word: ")
 	f.Scanln(&input)
+	countChar(input)
+	f.Printf("Huruf mati: %d\n", countC)
+	f.Printf("Huruf hidup: %d\n", countV)
+}
+
+func countChar(input string) (int, int) {
+	check :=[]bool{false,false,false,false,false,}
 	input = strings.ToLower(input)
 	for _, str:= range input {
 	switch str {
@@ -41,8 +48,7 @@ func main() {
 		default: 
 			countC++
 	}
-	}
 
-	f.Printf("Huruf mati: %d\n", countC)
-	f.Printf("Huruf hidup: %d\n", countV)
+		}
+			return countC, countV
 }

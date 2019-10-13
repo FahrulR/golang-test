@@ -1,7 +1,9 @@
 package main
 
-import f "fmt"
-import "strings"
+import (
+	f "fmt"
+	"strings"
+)
 
 var countC int
 var countV int
@@ -16,39 +18,39 @@ func main() {
 }
 
 func countChar(input string) (int, int) {
-	check :=[]bool{false,false,false,false,false,}
+	check := []bool{false, false, false, false, false}
 	input = strings.ToLower(input)
-	for _, str:= range input {
-	switch str {
+	for _, str := range input {
+		switch str {
 		case 'a':
 			if check[0] == false {
-			countV++
-			check[0] = true
+				countV++
+				check[0] = true
 			}
 		case 'e':
 			if check[1] == false {
-			countV++
-			check[1] = true
+				countV++
+				check[1] = true
 			}
 		case 'i':
 			if check[2] == false {
-			countV++
-			check[2] = true
+				countV++
+				check[2] = true
 			}
 		case 'o':
 			if check[3] == false {
-			countV++
-			check[3] = true
+				countV++
+				check[3] = true
 			}
 		case 'u':
 			if check[4] == false {
-			countV++
-			check[4] = true
+				countV++
+				check[4] = true
 			}
-		default: 
+		default:
 			countC++
-	}
-
 		}
-			return countC, countV
+
+	}
+	return countC, countV
 }

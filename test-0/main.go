@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bufio"
 	f "fmt"
+	"os"
 	"strings"
 )
 
@@ -11,7 +13,9 @@ var countV int
 func main() {
 	var input string
 	f.Printf("Input any word: ")
-	f.Scanln(&input)
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+	input = scanner.Text()
 	countChar(input)
 	f.Printf("Huruf mati: %d\n", countC)
 	f.Printf("Huruf hidup: %d\n", countV)
@@ -20,6 +24,7 @@ func main() {
 func countChar(input string) (int, int) {
 	check := []bool{false, false, false, false, false}
 	input = strings.ToLower(input)
+	input = strings.Replace(input, " ", "", -1)
 	for _, str := range input {
 		switch str {
 		case 'a':
